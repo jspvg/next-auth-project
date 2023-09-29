@@ -34,7 +34,7 @@ export async function POST(request) {
       );
     } else {
       return NextResponse.json(
-        { message: 'Incorrect password', result: e },
+        { message: 'Incorrect password' },
         { status: 400 },
       );
     }
