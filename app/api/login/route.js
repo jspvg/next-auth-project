@@ -9,7 +9,7 @@ export async function POST(request) {
 
     if (!email || !password) {
       return NextResponse.json(
-        { message: 'Both fields are required', result: e },
+        { message: 'Both fields are required' },
         { status: 400 },
       );
     }
@@ -20,7 +20,7 @@ export async function POST(request) {
 
     if (!user) {
       return NextResponse.json(
-        { message: 'No user found', result: e },
+        { message: 'No user found' },
         { status: 400 },
       );
     }

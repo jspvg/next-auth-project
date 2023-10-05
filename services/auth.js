@@ -4,9 +4,11 @@ export const registerUser = (email, password) => {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: {
-        Accept: 'application/json',
+        'Accept' : 'application/json',
         'Content-Type': 'application/json',
       },
+      mode: 'cors',
+      
     })
       .then((res) => {
         res
