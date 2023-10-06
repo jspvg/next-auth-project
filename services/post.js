@@ -1,14 +1,13 @@
-export const registerUser = (email, password) => {
+export const getAllPosts = (accessToken) => {
   return new Promise((resolve, reject) => {
-    fetch('/api/register', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
+    fetch('/api/post', {
+      method: 'GET',
       headers: {
-        'Accept' : 'application/json',
+        Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: accessToken,
       },
       mode: 'cors',
-      
     })
       .then((res) => {
         res
