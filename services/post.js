@@ -1,10 +1,11 @@
-export const getAllPosts = () => {
+export const getAllPosts = (accessToken) => {
   return new Promise((resolve, reject) => {
     fetch('/api/post', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: accessToken,
       },
       mode: 'cors',
     })

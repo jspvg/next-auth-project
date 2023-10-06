@@ -1,17 +1,20 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { getAllPosts } from '@/services/post';
+import { useSession } from 'next-auth/react';
 
 const PostList = () => {
+  const { data: session } = useSession();
+
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
-    getAllPosts()
+    getAllPosts(session?.user.accessToken)
       .then((res) => {
         setPostList(res.posts);
       })
       .catch((e) => console.error(e));
-  }, []);
+  }, [session]);
 
   return (
     <div className="flex flex-col space-y-12 items-center">
