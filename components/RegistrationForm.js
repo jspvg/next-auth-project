@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { registerUser } from '@/services/auth';
 
@@ -20,19 +20,19 @@ const RegistrationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    registerUser(email, password)
-      .then((res) => {
-        console.log(register);
-        if (res.status === 201) {
-          resetInputs();
-          router.push('/login');
-        } else {
-          setError(res.message);
-        }
-      })
-      .catch((e) => {
-        console.error(e);
-      });
+
+    try {
+      const res = await registerUser(email, password);
+
+      if (res && res.result) {
+        resetInputs();
+        router.push('/login');
+      } else {
+        setError(res.message);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
