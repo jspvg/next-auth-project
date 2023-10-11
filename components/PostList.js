@@ -9,11 +9,18 @@ const PostList = () => {
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
-    getAllPosts(session?.user.accessToken)
-      .then((res) => {
+    const fetchData = async () => {
+      try {
+        const res = await getAllPosts(session?.user.accessToken);
         setPostList(res.posts);
-      })
-      .catch((e) => console.error(e));
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    if (session) {
+      fetchData();
+    }
   }, [session]);
 
   return (
