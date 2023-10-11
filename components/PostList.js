@@ -32,7 +32,6 @@ const PostList = () => {
             className="group text-white flex justify-between border-4 border-white rounded-lg hover:bg-green-600 hover:border-green-600 duration-300 cursor-pointer"
           >
             <div>
-              {/*eslint-disable-next-line @next/next/no-img-element*/}
               <img src="/treasure.png" alt="treasure" className="w-36" />
             </div>
             <div className="flex flex-col space-y-4 justify-center px-16 my-6 border-1 border-white group-hover:border-green-600 duration-300">
